@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My portfolio</title>
+</head>
+<body>
+    <h1>My objects</h1>
+    <ul>
+        {% for i in list_of_names_of_lesson %}
+        <li><a href={{ url_for('lesson', lsn=i[0]) }}>{{ i[0]}}</a></li>
+        {% endfor %}
+    </ul>
+    <p>
+        <form method="POST">
+            <label for="creating">New lesson</label>
+            <input type="text" name="new_lesson" id="creating">
+            <input type="submit" value="Create new lesson">
+        </form>
+    </p>
+</body>
+</html>

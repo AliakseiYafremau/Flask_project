@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ lesson }}</title>
+</head>
+<body>
+    <h1>{{ lesson }}</h1>
+    <ul>
+        {% for i in list_of_grades %}
+        <li> {{ i }}    <a href={{ url_for('delete_grade', lsn=lesson, deleted_grade=i) }}>delete grade</a></li>
+        {% endfor %}
+    </ul>
+    <p>
+        Average number: {{ average }}
+    </p>
+    <p>
+        <form method="POST">
+            <label for="adding_grades">New grade</label>
+            <input type="text" name="new_grade" id="adding_grades">
+            <input type="submit" name="adding" value="Add new grade">
+        </form>
+    </p>
+    <h4>
+        <a href={{ url_for('main') }} >RETURN TO MAIN PAGE</a>
+        <br><br>
+        <a href={{ url_for('delete', lsn=lesson) }} >DELETE LESSON</a>
+    </h4>
+</body>
+</html>
